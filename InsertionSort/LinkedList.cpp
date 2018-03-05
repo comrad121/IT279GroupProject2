@@ -8,47 +8,45 @@
 #include "LinkedList.h"
 #include <iostream>
 
-#define NULL 0
+// #define NULL 0
 
 LinkedList::LinkedList() {
     head = NULL;
     tail = NULL;
+    temp = NULL;
+    size = 0;
 }
 
 void LinkedList::push(long data){
     // Creation of new node
-    node *temp = new node;
+    temp = new node;
     temp->data = data;
     temp->next = NULL;
-            
+    
     if(head == NULL){   // if list is empty, new node becomes head and tail
-        head = temp;
-        tail = head;
-        temp = NULL;
+        head = tail = temp;
+        head->next = NULL;
     }else{              // otherwise it becomes the tail
         tail->next = temp;
         tail = temp;
+        tail->next = NULL;
+    }
+    size++;
+}
+
+long LinkedList::readHead(){
+    return head->data;
+}
+
+void LinkedList::deleteHead(){
+    if(head == NULL){
+        head = head->next;
+        size--;
     }
 }
 
-node LinkedList::getHead(){
-    return *head;
-}
-
-void LinkedList::insert(int position, long data){
-    
-}
-
-void LinkedList::delete_pos(int position){
-    
-}
-
-void LinkedList::delete_val(long data){
-    
-}
-
 void LinkedList::print(){
-    node *temp = new node;
+    temp = new node;
     temp = head;
     while(temp != NULL){
         std::cout<<temp->data<<"\n";
@@ -56,3 +54,10 @@ void LinkedList::print(){
     }
 }
 
+int LinkedList::getSize(){
+    return size;
+}
+
+void LnkedList::insertionSort(){
+    if(head == null)
+}

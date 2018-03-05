@@ -14,9 +14,6 @@
 
 using namespace std;
 
-void insertionSort(node *headref);
-void insert(node* headref, node* current);
-
 int main(int argc, char *argv[]) {
     if(argc == 1){
         cout<<"No command line argument given.\n"
@@ -29,25 +26,31 @@ int main(int argc, char *argv[]) {
     ifstream inputFile;
     ofstream outputFile;
     string inputFileName(argv[1]);
-    string outputFileName = inputFileName.append("_sorted");
+    string outputFileName = inputFileName;
+    outputFileName.append("_sorted.txt");
+    long inputNum;
     
     // File input. It reads every line of the argued file into a long, then
-    // add it to the list.
+    // adds it to the list.
     inputFile.open(inputFileName);
-    long inputNum;
-    while(inputFile >> inputNum)
-        list.push(inputNum);
-    inputFile.close();
+    if(inputFile.is_open()){
+        while(inputFile >> inputNum){
+            list.push(inputNum);
+        }
+        inputFile.close();
+    }else{
+        cout<<"Unable to open "<<inputFileName<<endl;
+        return -1;
+    }
     
     // list.insertionSort();
     
     // File output. It prints every element of list onto its own line
     // in a file named "[inputFileName]_sorted.txt"
     outputFile.open(outputFileName);
-    node temp = list.getHead();
-    while(temp->next != NULL){
-        outputFile<<temp->data<<endl;
-        temp = temp->next;
+    while(list.getSize() > 0){
+        outputFile<<list.readHead()<<endl;
+        list.deleteHead();
     }
     outputFile.close();
     

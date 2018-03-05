@@ -18,16 +18,14 @@ public:
     LinkedList();
     
     void push(long data);
-    void insert(int position, long data);
-    void delete_pos(int position);
-    void delete_val(long data);
-    node getHead();
+    long readHead();
+    void deleteHead();
     void print();
+    int getSize();
     void insertionSort();
 private:
-    void insertionSort(node* head_ref, node* new_node);
-    node *head, *tail;
+    node *head, *tail, *temp;
+    int size;
 };
 
 #endif /* LINKEDLIST_H */
-
