@@ -2,9 +2,9 @@
 
 
 To Do:
-* The first program will be an implementation of insertion sort using linked lists to store the data. 
+* ~~The first program will be an implementation of insertion sort using linked lists to store the data. 
 
-Make sure your implementation is correct and efficient (for insertion sort).  
+~~Make sure your implementation is correct and efficient (for insertion sort).  
 The linked list must be implemented by you, and all movement in the lists must be done using pointers. 
 You must read the integers from the files and build a linked list in the order that matches the file and then sort that linked list.  
 You may not change what data is in any node after the data is initially stored into a node.
