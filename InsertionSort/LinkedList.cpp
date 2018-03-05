@@ -58,6 +58,31 @@ int LinkedList::getSize(){
     return size;
 }
 
-void LnkedList::insertionSort(){
-    if(head == null)
+void LinkedList::insertionSort(){
+    if(head == NULL || head->next == NULL){
+        return;
+    }
+    node* temp1 = head->next;
+    while(temp1 != NULL){
+        long sec_data = temp1->data;
+        long found = 0;
+        node* temp2 = head;
+        while(temp2 != temp1){
+            if(temp2->data > temp1->data && found == 0){
+                sec_data = temp2->data;
+                temp2->data = temp1->data;
+                found = 1;
+                temp2 = temp2->next;
+            }else{
+                if(found == 1){
+                    int temp = sec_data;
+                    sec_data = temp2->data;
+                    temp2->data = temp;
+                }
+                temp2 = temp2->next;
+            }
+        }
+        temp2->data = sec_data;
+        temp1 = temp1->next;
+    }
 }
