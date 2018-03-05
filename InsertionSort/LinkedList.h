@@ -16,6 +16,7 @@ struct node {
 class LinkedList {
 public:
     LinkedList();
+    virtual ~LinkedList();
     
     void push(long data);
     long readHead();

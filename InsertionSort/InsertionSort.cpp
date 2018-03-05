@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
         return -1;
     }
     
-    // list.insertionSort();
+    list.insertionSort();
     
     // File output. It prints every element of list onto its own line
     // in a file named "[inputFileName]_sorted.txt"
@@ -54,6 +54,7 @@ int main(int argc, char *argv[]) {
     }
     outputFile.close();
     
+    cout<<"Success!\n";
     return 0; 
 }
 

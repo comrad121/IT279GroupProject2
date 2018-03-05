@@ -17,6 +17,10 @@ LinkedList::LinkedList() {
     size = 0;
 }
 
+LinkedList::~LinkedList(){
+    
+}
+
 void LinkedList::push(long data){
     // Creation of new node
     temp = new node;
@@ -39,7 +43,9 @@ long LinkedList::readHead(){
 }
 
 void LinkedList::deleteHead(){
-    if(head == NULL){
+    if(head != NULL){
+        temp = new node;
+        temp = head;
         head = head->next;
         size--;
     }
